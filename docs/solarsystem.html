@@ -54,13 +54,13 @@
 
       var universe = new Universe(2.0e16);
       var axes = new Axes(universe, 1.0e13, 0, 0, 0);
-      var sun = new Star(universe, 0, 0, 0, 6.957e8, 'Sun', '/textures/sun.png', 0, 0, 0, 1.98855e30, 0, 0);
-      var mercury = new Rock(universe, 5.790905e10, 0, 0, 2.439700e6, 'Mercury', '/textures/mercury.png', 0, 0, 4.7362e4, 3.3011e23, 0.034/180*Math.PI, 86400*58.7);
-      var venus = new Rock(universe, 1.08208e11, 0, 0, 6.0518e6, 'Venus', '/textures/venus.png', 0, 0, 3.5020e4, 4.8675e24, 2.64/180*Math.PI, 86400*(-243.025));
-      var earth = new Rock(universe, 1.49598023e11, 0, 0, 6.371e6, 'Earth', '/textures/earth.png', 0, 0, 2.978e4, 5.97237e24, 23.4392811/180*Math.PI, 86400);
-      var moon = new Rock(universe, 1.49598023e11-3.84399e8, 0, 0, 1.7371e6, 'Moon', '/textures/moon.png', 0, 0, 2.978e4-1.022e3, 7.342e22, 1.5424/180*Math.PI, -86400*27.321661);
-      var mars = new Rock(universe, 2.279392e11, 0, 0, 3.3895e6, 'Mars', '/textures/mars.png', 0, 0, 2.4007e4, 6.4171e23, 25.19/180*Math.PI, 86400*1.025957);
-      // var sun2 = new Star(u, -2.279392e11, 0, 0, 3.957e8, 'Sun2', '/textures/sun.png', 0, 0, -2.978e4, 9.8855e29, 0, 0);
+      var sun = new Star(universe, 0, 0, 0, 6.957e8, 'Sun', 'images/textures/sun.png', 0, 0, 0, 1.98855e30, 0, 0);
+      var mercury = new Rock(universe, 5.790905e10, 0, 0, 2.439700e6, 'Mercury', 'images/textures/mercury.png', 0, 0, 4.7362e4, 3.3011e23, 0.034/180*Math.PI, 86400*58.7);
+      var venus = new Rock(universe, 1.08208e11, 0, 0, 6.0518e6, 'Venus', 'images/textures/venus.png', 0, 0, 3.5020e4, 4.8675e24, 2.64/180*Math.PI, 86400*(-243.025));
+      var earth = new Rock(universe, 1.49598023e11, 0, 0, 6.371e6, 'Earth', 'images/textures/earth.png', 0, 0, 2.978e4, 5.97237e24, 23.4392811/180*Math.PI, 86400);
+      var moon = new Rock(universe, 1.49598023e11-3.84399e8, 0, 0, 1.7371e6, 'Moon', 'images/textures/moon.png', 0, 0, 2.978e4-1.022e3, 7.342e22, 1.5424/180*Math.PI, -86400*27.321661);
+      var mars = new Rock(universe, 2.279392e11, 0, 0, 3.3895e6, 'Mars', 'images/textures/mars.png', 0, 0, 2.4007e4, 6.4171e23, 25.19/180*Math.PI, 86400*1.025957);
+      // var sun2 = new Star(u, -2.279392e11, 0, 0, 3.957e8, 'Sun2', 'images/textures/sun.png', 0, 0, -2.978e4, 9.8855e29, 0, 0);
       animate();
       
     </script>

@@ -10,7 +10,7 @@ function Universe(radius) {
   this.add(this.light);
 
   this.radius = radius/K || 7.0e8/K;
-  var texture = new THREE.TextureLoader().load("/textures/stars.png");
+  var texture = new THREE.TextureLoader().load("images/textures/stars.png");
   var cover = new THREE.MeshBasicMaterial({lights: false, map: texture, side: THREE.BackSide});
   var shape = new THREE.SphereGeometry(this.radius, 32, 16);
   var stars = new THREE.Mesh(shape, cover);
