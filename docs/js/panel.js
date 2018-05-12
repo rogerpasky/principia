@@ -1,6 +1,6 @@
 document.addEventListener("keydown", keydownCallback);
 function keydownCallback(event) {
-  keystroke(event.key)
+  keystroke(event.key);
 }
 
 function keystroke(key) {
