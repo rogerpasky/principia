@@ -22,5 +22,4 @@ Universe.prototype = Object.assign(Object.create(THREE.Object3D.prototype), {
   constructor: Universe,
   isUniverse: true,
 } );
-
 // export {Universe};

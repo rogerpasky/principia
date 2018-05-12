@@ -2,7 +2,7 @@ function Rock(universe, x, y, z, radius, name, texture, vx0, vy0, vz0, mass, til
   SpaceObject.call(this, universe, x, y, z, radius, name, vx0, vy0, vz0, mass, tilt, period);
   this.type = 'Rock';
 
-  texture = texture || 'images/textures/moon.png'
+  texture = texture || '/textures/moon.png'
   var texture = new THREE.TextureLoader().load(texture);
   var cover = new THREE.MeshStandardMaterial({map: texture, roughness: 1});
   var shape = new THREE.SphereGeometry(this.radius, 32, 16);
