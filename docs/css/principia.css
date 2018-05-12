@@ -6,8 +6,8 @@ body {
 }
 #panel {
   background-color: rgba(0, 0, 0, 0.5);
-  margin: 30pt;
-  padding: 20pt;
+  margin: 2vw;
+  padding: 1vw;
   width: 25%;
   position: absolute;
   color: #a0a0a0;
