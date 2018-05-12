@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Expriment 1 - basic orbits - three.js</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/principia.css">
+  </head>
+  <body>
+    <div id="panel">
+    <h1>Solar System simulator</h1>
+    <p>
+      Enjoy the Newton laws in their glorious majestuosity. No trigonometry was used. All data
+      are accurate average positions, sizes, masses and velocities.
+    </p>
+    <h2 id="name">Overall view</h2>
+    <p>Elapsed time = <span id="timer">0s</span></p>
+    <br>
+    <p><small>
+      Press <span class="key"> i </span> to switch on/off <strong>instructions</strong>.
+    </small></p>
+    <div id="instructions" style="display: none"><small>
+      <p><strong>Click</strong> and drag to <strong>move</strong> arround pointed object, 
+        <strong>roll</strong> forward/backwards to <strong>zoom</strong> out/in and use
+        <span class="key"> arrows </span> to <strong>pan</strong> camera.</p>
+      <p>Press <span class="key"> c </span> to change the viewpoint <strong>camera</strong>.</p>
+      <p>Press <span class="key"> &gt </span><span class="key"> &lt </span>
+        to increase/decrease <strong>scale</strong> objects.</p>
+      <p>Press <span class="key"> + </span><span class="key"> - </span>
+        to accelerate/decelerate <strong>time</strong>.</p>
+      <p>Press <span class="key"> Spacebar </span> to <strong>freeze</strong> time.</p>
+      </small></div>
+    </div>
+    <div id="animation"></div>
+
+    <script src="js/three.js"></script>
+    <script src="js/controls/OrbitControls.js"></script>
+    <script src="js/principia.js"></script>
+    <script src="js/panel.js"></script>
+    <script src="js/universe.js"></script>
+    <script src="js/viewpoint.js"></script>
+    <script src="js/spaceobject.js"></script>
+    <script src="js/star.js"></script>
+    <script src="js/rock.js"></script>
+    <script src="js/axes.js"></script>
+    <script src="js/trail.js"></script>
+    <script>
+      setTimer(document.getElementById("timer"));
+      setNamer(document.getElementById("name"));
+      setInstructor(document.getElementById("instructions"));
+      setAnimator(document.getElementById("animation"));
+
+      // PLEASE ADD YOUR CODE FROM THIS LINE ON -------------------------------
+
+      var universe = new Universe(2.0e16);
+      var axes = new Axes(universe, 1.0e13, 0, 0, 0);
+      var sun = new Star(universe, 0, 0, 0, 6.957e8, 'Sun', '/textures/sun.png', 0, 0, 0, 1.98855e30, 0, 0);
+      var mercury = new Rock(universe, 5.790905e10, 0, 0, 2.439700e6, 'Mercury', '/textures/mercury.png', 0, 0, 4.7362e4, 3.3011e23, 0.034/180*Math.PI, 86400*58.7);
+      var venus = new Rock(universe, 1.08208e11, 0, 0, 6.0518e6, 'Venus', '/textures/venus.png', 0, 0, 3.5020e4, 4.8675e24, 2.64/180*Math.PI, 86400*(-243.025));
+      var earth = new Rock(universe, 1.49598023e11, 0, 0, 6.371e6, 'Earth', '/textures/earth.png', 0, 0, 2.978e4, 5.97237e24, 23.4392811/180*Math.PI, 86400);
+      var moon = new Rock(universe, 1.49598023e11-3.84399e8, 0, 0, 1.7371e6, 'Moon', '/textures/moon.png', 0, 0, 2.978e4-1.022e3, 7.342e22, 1.5424/180*Math.PI, -86400*27.321661);
+      var mars = new Rock(universe, 2.279392e11, 0, 0, 3.3895e6, 'Mars', '/textures/mars.png', 0, 0, 2.4007e4, 6.4171e23, 25.19/180*Math.PI, 86400*1.025957);
+      // var sun2 = new Star(u, -2.279392e11, 0, 0, 3.957e8, 'Sun2', '/textures/sun.png', 0, 0, -2.978e4, 9.8855e29, 0, 0);
+      animate();
+      
+    </script>
+  </body>
+</html>

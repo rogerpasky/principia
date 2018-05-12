@@ -1,0 +1,28 @@
+body {
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 150%;
+  margin: 0px;
+  overflow: hidden;
+}
+#panel {
+  background-color: rgba(0, 0, 0, 0.5);
+  margin: 30pt;
+  padding: 20pt;
+  width: 25%;
+  position: absolute;
+  color: #a0a0a0;
+}
+h1, h2 {
+  color: #f0f0f0
+}
+span.key {
+  display: inline-block;
+  color: #e0a000;
+  padding-left: 5pt;
+  padding-right: 5pt;
+  border: 1px solid#e0a000;
+  border-radius: 4pt;
+}
+strong{
+  color: #e0a000;
+}
