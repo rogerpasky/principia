@@ -28,22 +28,22 @@ function keystroke(key) {
   }
 }
 
-var timerContainer;
-let elapsedTime = 0;
-const PERIODS = [['y', 31557600], ['mo', 2629800], ['d', 86400], ['h', 3600], ['m', 60], ['s', 1]];
+var _timerContainer;
+let _elapsedTime = 0;
+const _PERIODS = [['y', 31557600], ['mo', 2629800], ['d', 86400], ['h', 3600], ['m', 60], ['s', 1]];
 
 function setTimer(textPlaceholder) {
-  timerContainer = textPlaceholder;
+  _timerContainer = textPlaceholder;
 }
 
 function updateTimer(timeDelta) {
-  if (timerContainer) {
-    var previousSeconds = Math.floor(elapsedTime);
-    elapsedTime += timeDelta;
-    var seconds = Math.floor(elapsedTime);
+  if (_timerContainer) {
+    var previousSeconds = Math.floor(_elapsedTime);
+    _elapsedTime += timeDelta;
+    var seconds = Math.floor(_elapsedTime);
     if (seconds > previousSeconds) {
       var content = '';
-      PERIODS.forEach(period => {
+      _PERIODS.forEach(period => {
         if (seconds >= period[1]) {
           content += ' ' + Math.floor(seconds/period[1]).toString() + period[0];
           seconds %= period[1];
@@ -51,17 +51,48 @@ function updateTimer(timeDelta) {
           content += ' 0' + period[0];
         }
       })
-      timerContainer.textContent = content;
+      _timerContainer.textContent = content;
     }
   }
 }
 
-var instructionsContainer;
+var _instructionsDetails;
 
 function setInstructor(placeholder) {
-  instructionsContainer = placeholder;
-}
+  placeholder.innerHTML = '\
+    <small>\
+      <p>\
+        Press <a onclick="keystroke(\'i\')"><span class="key"> i </span></a>\
+        to switch on/off <strong> instructions </strong>.\
+      </p>\
+      <div id="instructionsDetails" style="display: none">\
+        <p>\
+          <strong>Click</strong> and drag to <strong>move</strong> arround pointed object,\
+          <strong>roll</strong> forward/backwards to <strong>zoom</strong> out/in and use\
+          <span class="key"> arrows </span> to <strong>pan</strong> camera, or press:\
+        </p>\
+        <p>\
+          <a onclick="keystroke(\'c\')"><span class="key"> c </span></a>\
+          to change the viewpoint <strong>camera</strong>.\
+        </p>\
+        <p>\
+          <a onclick="keystroke(\'>\')"><span class="key"> &gt </span></a>\
+          <a onclick="keystroke(\'<\')"><span class="key"> &lt </span></a>\
+          to increase/decrease <strong>scale</strong> objects.</p>\
+        <p>\
+          <a onclick="keystroke(\'+\')"><span class="key"> + </span></a>\
+          <a onclick="keystroke(\'-\')"><span class="key"> - </span></a>\
+          to accelerate/decelerate <strong>time</strong>.\
+        </p>\
+        <p>\
+          <a onclick="keystroke(\' \')"><span class="key"> Spacebar </span></a>\
+          to <strong>freeze</strong> time.\
+        </p>\
+      </div>\
+    </small>';
+    _instructionsDetails = document.getElementById("instructionsDetails");
+  }
 
 function toggleInstructions() {
-  instructionsContainer.style.display = (instructions.style.display == "none")? "block": "none";
+  _instructionsDetails.style.display = (_instructionsDetails.style.display == "none")? "block": "none";
 }

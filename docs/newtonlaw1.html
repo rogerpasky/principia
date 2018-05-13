@@ -20,34 +20,7 @@
       <h2 id="name"> Overall view </h2>
       <p> Elapsed time: <span id="timer"> 0s </span></p>
       <br>
-      <p><small>
-        Press <a onclick="keystroke('i')"><span class="key"> i </span></a> 
-        to switch on/off <strong> instructions </strong>.
-      </small></p>
-      <div id="instructions" style="display: none"><small>
-        <p>
-          <strong>Click</strong> and drag to <strong>move</strong> arround pointed object, 
-          <strong>roll</strong> forward/backwards to <strong>zoom</strong> out/in and use
-          <span class="key"> arrows </span> to <strong>pan</strong> camera, or press:
-        </p>
-        <p>
-          <a onclick="keystroke('c')"><span class="key"> c </span></a> 
-          to change the viewpoint <strong>camera</strong>.
-        </p>
-        <p>
-          <a onclick="keystroke('>')"><span class="key"> &gt </span></a>
-          <a onclick="keystroke('<')"><span class="key"> &lt </span></a>
-          to increase/decrease <strong>scale</strong> objects.</p>
-        <p>
-          <a onclick="keystroke('+')"><span class="key"> + </span></a>
-          <a onclick="keystroke('-')"><span class="key"> - </span></a>
-          to accelerate/decelerate <strong>time</strong>.
-        </p>
-        <p>
-          <a onclick="keystroke(' ')"><span class="key"> Spacebar </span></a> 
-          to <strong>freeze</strong> time.
-        </p>
-      </small></div>
+      <div id="instructions"></div>
     </div>
     <div id="animation"></div>
 
@@ -75,10 +48,10 @@
       var sun = new Star(universe, 0, 0, 0, sunRadius, 'Sun', 'images/textures/sun.png', 2*sunRadius, 0, 0, 1.98855e30, 0, 0);
 
       var axesArray = [];
-      var _elapsedTime = 0;
+      var elapsedTime = 0;
       var nextSecond = 0;
       function myStep(timeDelta) {
-        _elapsedTime += timeDelta;
+        elapsedTime += timeDelta;
         if (_elapsedTime >= nextSecond) {
           axesArray.push(new Axes(universe, sunRadius, K*sun.position.x, K*sun.position.y, K*sun.position.z));
           nextSecond +=1;
