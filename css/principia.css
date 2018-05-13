@@ -1,13 +1,13 @@
 body {
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 150%;
+  font-size: 1.5vw;
   margin: 0px;
   overflow: hidden;
 }
 #panel {
   background-color: rgba(0, 0, 0, 0.5);
-  margin: 30pt;
-  padding: 20pt;
+  margin: 2vw;
+  padding: 1vw;
   width: 25%;
   position: absolute;
   color: #a0a0a0;

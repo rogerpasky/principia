@@ -1,6 +1,10 @@
 document.addEventListener("keydown", keydownCallback);
 function keydownCallback(event) {
-  switch (event.key) {
+  keystroke(event.key);
+}
+
+function keystroke(key) {
+  switch (key) {
     case ' ': 
       togglePause();
       break;
