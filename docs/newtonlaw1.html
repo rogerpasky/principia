@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Newton's 1st law - Inertia - principia.js</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/principia.css">
+  </head>
+  <body>
+    <div id="panel">
+      <h1>Newton's first law (Law of Inertia)</h1>
+      <p>
+          An object that is in motion will not change its velocity unless a force 
+          acts upon it. This is known as uniform motion.<br>
+          This star is alone (no surrounding forces) and moves the length of its 
+          radius every second.
+      </p>
+      <h2 id="name"> Overall view </h2>
+      <p> Elapsed time: <span id="timer"> 0s </span></p>
+      <br>
+      <p><small>
+        Press <a onclick="keystroke('i')"><span class="key"> i </span></a> 
+        to switch on/off <strong> instructions </strong>.
+      </small></p>
+      <div id="instructions" style="display: none"><small>
+        <p>
+          <strong>Click</strong> and drag to <strong>move</strong> arround pointed object, 
+          <strong>roll</strong> forward/backwards to <strong>zoom</strong> out/in and use
+          <span class="key"> arrows </span> to <strong>pan</strong> camera, or press:
+        </p>
+        <p>
+          <a onclick="keystroke('c')"><span class="key"> c </span></a> 
+          to change the viewpoint <strong>camera</strong>.
+        </p>
+        <p>
+          <a onclick="keystroke('>')"><span class="key"> &gt </span></a>
+          <a onclick="keystroke('<')"><span class="key"> &lt </span></a>
+          to increase/decrease <strong>scale</strong> objects.</p>
+        <p>
+          <a onclick="keystroke('+')"><span class="key"> + </span></a>
+          <a onclick="keystroke('-')"><span class="key"> - </span></a>
+          to accelerate/decelerate <strong>time</strong>.
+        </p>
+        <p>
+          <a onclick="keystroke(' ')"><span class="key"> Spacebar </span></a> 
+          to <strong>freeze</strong> time.
+        </p>
+      </small></div>
+    </div>
+    <div id="animation"></div>
+
+    <script src="js/three.js"></script>
+    <script src="js/controls/OrbitControls.js"></script>
+    <script src="js/principia.js"></script>
+    <script src="js/panel.js"></script>
+    <script src="js/universe.js"></script>
+    <script src="js/viewpoint.js"></script>
+    <script src="js/spaceobject.js"></script>
+    <script src="js/star.js"></script>
+    <script src="js/axes.js"></script>
+    <script src="js/trail.js"></script>
+    <script>
+      setTimer(document.getElementById("timer"));
+      setNamer(document.getElementById("name"));
+      setInstructor(document.getElementById("instructions"));
+      setAnimator(document.getElementById("animation"));
+
+      // PLEASE ADD YOUR CODE FROM THIS LINE ON --------------------------------
+
+      var universe = new Universe(2.0e16);
+      var axes = new Axes(universe, 1.0e13, 0, 0, 0);
+      var sun = new Star(universe, 0, 0, 0, 6.957e8, 'Sun', 'images/textures/sun.png', 6.957e8, 0, 0, 1.98855e30, 0, 0);
+      animate();
+      
+    </script>
+  </body>
+</html>
