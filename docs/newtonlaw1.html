@@ -8,12 +8,14 @@
   </head>
   <body>
     <div id="panel">
-      <h1>Newton's first law (Law of Inertia)</h1>
+      <h1>Newton's 1st law (Law of Inertia)</h1>
       <p>
           An object that is in motion will not change its velocity unless a force 
-          acts upon it. This is known as uniform motion.<br>
+          acts upon it. This is known as uniform motion.
+      </p>
+      <p>
           This star is alone (no surrounding forces) and moves the length of its 
-          radius every second.
+          diameter every second.
       </p>
       <h2 id="name"> Overall view </h2>
       <p> Elapsed time: <span id="timer"> 0s </span></p>
@@ -67,11 +69,26 @@
 
       // PLEASE ADD YOUR CODE FROM THIS LINE ON --------------------------------
 
+      var sunRadius = 6.957e8;
       var universe = new Universe(2.0e16);
       var axes = new Axes(universe, 1.0e13, 0, 0, 0);
-      var sun = new Star(universe, 0, 0, 0, 6.957e8, 'Sun', 'images/textures/sun.png', 6.957e8, 0, 0, 1.98855e30, 0, 0);
+      var sun = new Star(universe, 0, 0, 0, sunRadius, 'Sun', 'images/textures/sun.png', 2*sunRadius, 0, 0, 1.98855e30, 0, 0);
+
+      var axesArray = [];
+      var _elapsedTime = 0;
+      var nextSecond = 0;
+      function myStep(timeDelta) {
+        _elapsedTime += timeDelta;
+        if (_elapsedTime >= nextSecond) {
+          axesArray.push(new Axes(universe, sunRadius, K*sun.position.x, K*sun.position.y, K*sun.position.z));
+          nextSecond +=1;
+        }
+      }
+
+      setUserAnimation(myStep);
       animate();
-      
+      togglePause();
+
     </script>
   </body>
 </html>
