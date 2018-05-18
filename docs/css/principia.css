@@ -24,7 +24,11 @@ body.experiment{
   position: absolute;
 }
 h1, h2, h3, h4 {
-  color: #f0f0f0
+  color: #f0f0f0;
+  margin-top: 2em;
+}
+h1.experiment, h2.experiment, h3.experiment, h4.experiment {
+  margin-top: 1em;
 }
 span.key {
   display: inline-block;
