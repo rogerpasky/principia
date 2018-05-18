@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Acceleration - Newton's 2nd law - principia.js</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/principia.css">
+  </head>
+  <body class="experiment">
+    <div id="panel">
+      <h1>Newton's 2nd law (Acceleration)</h1>
+      <p>
+          A force applied to an object increases its velocity gradually in the 
+          direction of the force. This is known as accelerated motion.
+      </p>
+      <p>
+          This mini-Mercury is affected by the only gravity force of the nearby star
+          and moves every ten seconds one length of its diameter, two, thre...
+      </p>
+      <h2 id="name"> Overall view </h2>
+      <p> Elapsed time: <span id="timer"> 0s </span></p>
+      <br>
+      <div id="instructions"></div>
+    </div>
+    <div id="animation"></div>
+
+    <script src="js/three.js"></script>
+    <script src="js/controls/OrbitControls.js"></script>
+    <script src="js/principia.js"></script>
+    <script src="js/panel.js"></script>
+    <script src="js/universe.js"></script>
+    <script src="js/viewpoint.js"></script>
+    <script src="js/spaceobject.js"></script>
+    <script src="js/star.js"></script>
+    <script src="js/rock.js"></script>
+    <script src="js/axes.js"></script>
+    <script src="js/trail.js"></script>
+    <script>
+      setTimer(document.getElementById("timer"));
+      setNamer(document.getElementById("name"));
+      setInstructor(document.getElementById("instructions"));
+      setAnimator(document.getElementById("animation"));
+
+      // PLEASE ADD YOUR CODE FROM THIS LINE ON --------------------------------
+/*
+r1 = Sun radius
+r2 = Falling object radius
+
+v = v0 + a*t;
+x = x0 + v0*t + 1/2*a*t^2
+
+x0 = 0; t0 = 0; t1 = 10s; t2 = 20s =>
+x1 = 10*v0 + 1/2*100*a = (1)*2*r2
+x2 = 20*v0 + 1/2*400*a = (1+2)*2*r2
+}=>
+20*v0 + 200*a = 3*(10*v0 + 50*a) = 30*v0 + 150*a
+50*a = 10*v0
+a = 1/5*v0
+
+10*v0 + 1/2*100*(1/5*v0) = 2*r2
+10*v0 + 10*v0 = 2*r2
+v0 = 1/10*r2 m/s
+a = 1/50*r2 m/s^2
+=====
+t3 = 30
+x3 = 1/10*r2*30 + 1/2*1/50*r2*900 = 3*r2 + 9*r2 = 12*r2 = (1+2+3)*2*r2
+t4 = 40
+x4 = 1/10*r2*40 + 1/2*1/50*r2*1600 = 4*r2 + 16*r2 = 20*r2 = (1+2+3+4)*2*r2
+=====
+
+F = m2*a = G*m1*m2/dist^2
+a = G*m1/dist^2
+
+1/50*r2 = G*m1/dist^2
+dist^2 = 50*G*m1/r2
+
+dist = r1 + 255*2*r2 + r2 =>
+(r1 + 511*r2)^2 = 50*G*m1/r2
+r1^2 +  1022*r1*r2 + 261121*r2^2 = 50G*m1/r2
+261121*r2^3 + 1022*r1*r2^2 + r1^2*r2 - 50*G*m1 = 0
+
+G = 6.67408e-11; r1 = 6.957e8; m1 = 1.98855e30 =>
+r2 = 13443.7 m  // About one and a half mount Everest
+http://www.wolframalpha.com/input/?i=%22261121*x%5E3%2B1022*6.957e8*x%5E2%2B6.957e8%5E2*x-50*6.67408e-11*1.98855e30%3D0%22
+*/
+      let sunRadius = 6.957e8;
+      let mercuryRadius = 13443.7;
+      var universe = new Universe(2.0e16);
+      var axes = new Axes(universe, 1.0e13, 0, 0, 0);
+      var sun = new Star(universe, 0, 0, 0, sunRadius, 'Sun', 'images/textures/sun.png', 0, 0, 0, 1.98855e30, 0, 0);
+      var mercury = new Rock(universe, sunRadius+511*mercuryRadius, 0, 0, mercuryRadius, 'Mercury', 'images/textures/mercury.png', -mercuryRadius/10, 0, 0, 3.3011e23, 0.034/180*Math.PI, 86400*58.7);
+
+      var axesArray = [];
+      const axesPositions = [[0, 1], [1, 0], [0, -1], [-1, 0]];
+      for (var i=0; i<256; i++) {
+        axesPositions.forEach(position => {
+          axesArray.push(new Axes(universe, mercuryRadius/4, 
+            sunRadius + mercuryRadius*(2*i + 1),
+            mercuryRadius*position[0],
+            mercuryRadius*position[1]
+          ));
+        });
+      }
+      var elapsedTime = 0;
+      var nextSecond = 0;
+      function myStep(timeDelta) {
+        elapsedTime += timeDelta;
+        if (_elapsedTime >= nextSecond) {
+          axesArray.push(new Axes(universe, mercuryRadius, K*mercury.position.x, K*mercury.position.y, K*mercury.position.z));
+          nextSecond +=10;
+        }
+      }
+
+      setUserAnimation(myStep);
+      animate();
+      togglePause();
+
+    </script>
+  </body>
+</html>

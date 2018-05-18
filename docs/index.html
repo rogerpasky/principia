@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Inner Solar System - Basic Orbits - three.js</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/principia.css">
+  </head>
+  <body>
+    <div class="page">
+      <h1>Principia</h1>
+      <p><strong>Using three.js 3D library to teach physics, programming and encourage young nerds.</strong></p><br>
+      <p>
+        Principia is a JavaScript library who offers virtual experiments to test and learn the laws
+        of physics. This is not a perfect simulator, but it's good enough to have fun and enjoy the
+        science for a while.
+      </p>
+      <h2>Newton's Laws</h2>
+      Newton Laws are as beauty as powerful in their simplicity.
+      <div class="indent">
+        <h3>Newton's 1st law (Law of Inertia)</h3>
+        <p>
+          Newton was clever enought to understand the true nature of movement is to keep on moving
+          forever unless something stops it. This was a counter-intuitive proposal (even nowadays for
+          a lot of people) because everything we start moving in planet Earth surface ends up stopping
+          due to external forces like friction with floor or air.
+        </p>
+        <div class="indent">
+          <h4>Let's throw a star with a initial velocity and see what happens</h4>
+          <p>
+            In this experiment there are no surrounding elements who can influence the movement of such a 
+            <strong>lonely star</strong>, so it should go on forever with the initial velocity. This velocity has been 
+            stated as "advance a distance equal to <strong>one diameter of the star</strong> in the path 
+            of <strong>x axis</strong> per <strong>second</strong>". There will be created new axes every 
+            second wherever the center of the star is, and because of Newton's first law they should appear
+            separated by one star diameter each other. 
+            <a href="newtonlaw1.html"><span class="key"> Go to experiment </span></a>
+          </p>
+        </div>
+      </div>
+      <div class="indent">
+        <h3>Newton's 2nd law (Force generates acceleration)</h3>
+        <p>
+          When a force is applied to a body, it will gain velocity gradually (this is called "acceleration").
+          But it doesn't applies the same way to all bodies, because the more mass it has, the less 
+          acceleration it will get (its velocity will increase in a slower manner), just like pushing with 
+          the same force a skateboard or a car.
+        </p>
+        <div class="indent">
+          <h4>Let's drop a small version of planet Mercury to the Sun</h4>
+          <p>
+            Physical objects (the ones who has mass) generate a force among them called "gravity" (more 
+            about this later). This force makes things fall towards the cented of the Earth or, in this 
+            case, the Sun. We can drop a stone, an apple or, in this case, a full planet like Mercury.
+            Acceleration means <strong>velocity</strong> will <strong>grow</strong> gradually every second, 
+            so the <strong>distance</strong> the body will advance will <strong>"double" grow </strong> 
+            every second (according to the square of the elapsed seconds). There will appear axes every 
+            ten seconds in the center of Mercury as it is falling, and you will realize the distance among
+            axes gets bigger and biger through time (one diameter, two, tree...).
+            <a href="newtonlaw2.html"><span class="key"> Go to experiment </span></a>
+          </p>
+          <p>
+            Note some <strong>extra details</strong>: Mercury has been reduced (just as "tiny" as one and 
+            a half mount Everest) to make its diameter fit in this experiment, placing it in that precise 
+            starting point and pushing it with a precise initial velocity so it can advance in the required 
+            steps. Detailed calculations are in source code. Another interesting detail is gravity force 
+            is not constant, because it varies with the distance to the center of the Sun in this case, so 
+            the closer it gets the stronger is the force. If you look closely tho the last axes you will 
+            notice they are getting closer to the Sun than it was supposed to be.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
