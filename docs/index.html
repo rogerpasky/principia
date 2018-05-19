@@ -9,44 +9,50 @@
   <body>
     <div class="page">
       <h1>Principia</h1>
-      <p><strong>Using three.js 3D library to teach physics, programming and encourage young nerds.</strong></p><br>
+      <p>
+        <strong>
+          Using three.js 3D library to teach physics, programming and encourage young nerds.
+        </strong>
+      </p>
       <p>
         Principia is a JavaScript library who offers virtual experiments to test and learn the laws
         of physics. This is not a perfect simulator, but it's good enough to have fun and enjoy the
         science for a while playing with the Universe in <strong>God mode</strong>.
       </p>
+      <br>
       <h2>Newton's Laws</h2>
       Newton Laws are as beauty as powerful in their simplicity.
-      <div class="indent">
+      <div class="indent lateral">
         <h3>Newton's 1st law (Law of Inertia)</h3>
         <p>
           Newton was clever enought to understand the true nature of movement is to keep on moving
-          forever unless something stops it. This was a counter-intuitive proposal (even nowadays for
-          a lot of people) because everything we start moving in planet Earth surface ends up stopping
-          due to external forces like friction with floor or air.
+          forever unless something stops it. This is called <strong>Uniform Motion</strong> and it was 
+          a counter-intuitive proposal (even nowadays for a lot of people) because everything we start 
+          moving in planet Earth surface ends up stopping due to external forces like friction with 
+          floor or air.
         </p>
-        <div class="indent">
+        <div class="indent transparent">
           <h4>Let's throw a star with a initial velocity and see what happens</h4>
           <p>
             In this experiment there are no surrounding elements who can influence the movement of such a 
             <strong>lonely star</strong>, so it should go on forever with the initial velocity. This velocity has been 
             stated as "advance a distance equal to <strong>one diameter of the star</strong> in the path 
-            of <strong>x axis</strong> per <strong>second</strong>". There will be created new axes every 
+            of <strong>X axis</strong> per <strong>second</strong>". There will be created new axes every 
             second wherever the center of the star is, and because of Newton's first law they should appear
             separated by one star diameter each other. 
             <a href="newtonlaw1.html"><span class="key"> Go to experiment </span></a>
           </p>
         </div>
       </div>
-      <div class="indent">
+      <div class="indent lateral">
         <h3>Newton's 2nd law (Force generates acceleration)</h3>
         <p>
-          When a force is applied to a body, it will gain velocity gradually (this is called "acceleration").
-          But it doesn't applies the same way to all bodies, because the more mass it has, the less 
-          acceleration it will get (its velocity will increase in a slower manner), just like pushing with 
-          the same force a skateboard or a car.
+          When a force is applied to a body, it will gain velocity gradually (this is called <strong>
+          Accelerated Motion</strong>). But it doesn't applies the same way to all bodies, because the 
+          more mass it has, the less acceleration it will get (its velocity will increase in a slower 
+          manner), just like pushing with the same force a skateboard or a car.
         </p>
-        <div class="indent">
+        <div class="indent transparent">
           <h4>Let's drop a small version of planet Mercury to the Sun</h4>
           <p>
             Physical objects (the ones who has mass) generate a force among them called "gravity" (more 
@@ -70,32 +76,61 @@
           </p>
         </div>
       </div>
-      <div class="indent">
-          <h3>Newton's 3rd law (Action-Reaction Law)</h3>
+      <div class="indent lateral">
+        <h3>Newton's 3rd law (Action-Reaction Law)</h3>
+        <p>
+          All forces between objects exist in equal magnitude and opposite direction. If one object pushes 
+          a force on a second object, the second one pushes the same force on the first one, but oppsite, 
+          just like pushing someone over ice, he will move forward, but you'll move backwards. Same applies 
+          to pulling. The net sum of all the interaction forces of all objets will add up to zero.
+        </p>
+        <div class="indent transparent">
+          <h4>Let's drop two identical Suns, one towards each other</h4>
           <p>
-            All forces between objects exist in equal magnitude and opposite direction. If one object pushes 
-            a force on a second object, the second one pushes the same force on the first one, but oppsite, 
-            just like pushing someone over ice, he will move forward, but you'll move backwards. Same applies 
-            to pulling. The net sum of all the interaction forces of all objets will add up to zero.
+            Two identical objects will get attracted with same force intensity each one, so they will meet 
+            at the midpoint. Because stars are so huge and distnces are really, really big, they are going 
+            to spend more than eight hours to start touching at the end of the fall, we have <strong>
+            accelerated time</strong> to make it one thousand faster (1 life second = 1000 simulated seconds) 
+            so you do not get bored. One new axes set will be drom every hour at the center of each star.
+            <a href="newtonlaw3.html"><span class="key"> Go to experiment </span></a>
           </p>
-          <div class="indent">
-            <h4>Let's drop two identical Suns, one towards each other</h4>
+          <p>
+            Please notice the centers of both objects was separated 3 million Kilometers each to the coordinates
+            origin (marked at the center of the big axes) so, being both affected by two equal opposite 
+            forces, they <strong>end up at very center</strong>, as it should be. The distances they are marking 
+            every hour are increasing in a similar accelerating pattern as the one we saw in the second law example.
+          </p>
+        </div>
+      </div>
+      <br>
+      <h2>Orbital Movement</h2>
+      When Uniform Motion and Accelerated Motion (derived from gravity forces) are combined, some magic happens. If the 
+      resulting movement is a periodical loop, it is called <srtong>Orbital Motion</srtong>. All those beautiful 
+      movements have been generated with the solely equations of the three Newton Laws.
+      <div class="indent lateral">
+        <h3>Solar Systems</h3>
+        <p>
+          We have an excellent example in the neiborghood. We call it Solar System, and it is well known with known masses
+          and velocities, but we can imagine other solar systems...
+        </p>
+        <div class="indent transparent">
+          <h4>Inner Solar System</h4>
+          <p>
+            let's watch a subset of our Solar System, made up of the rocky planets (Mercury, Venus, Earth and its Moon and 
+            Mars). Initial distances to Sun and velocities are the <strong>average</strong> ones that appears in Wikipedia, 
+            but they are not precisely placed at the actual locations in a determined date (they are all aligned in the X 
+            axis).
+            <a href="innersolarsystem.html"><span class="key"> Go to experiment </span></a>
+          </p>
+        </div>
+        <div class="indent transparent">
+            <h4>Inner Bynary Solar System</h4>
             <p>
-              Two identical objects will get attracted with same force intensity each one, so they will meet 
-              at the midpoint. Because stars are so huge and distnces are really, really big, they are going 
-              to spend more than eight hours to start touching at the end of the fall, we have accelerated 
-              time to make it one thousand faster (1 life second = 1000 simulated seconds) so you do not get 
-              bored. One new axes set will be drom every hour at the center of each star.
-              <a href="newtonlaw3.html"><span class="key"> Go to experiment </span></a>
-            </p>
-            <p>
-              Please notice the centers of both objects was separated 3 million Kilometers to the coordinates
-              origin (marked at the center of the big axes) so, being both affected by two equal opposite 
-              forces, they end up at very center, as it should be. The distances they are marking every hour
-              are increasing in a similar accelerating pattern as the one we saw in the second law example.
+              What would happen in the Solar System if thewre would be a second Sun in it?
+              <a href="innerbinarysolarsystem.html"><span class="key"> Go to experiment </span></a>
             </p>
           </div>
         </div>
-      </div>
+    </div>
   </body>
 </html>

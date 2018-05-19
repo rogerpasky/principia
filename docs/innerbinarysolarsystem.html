@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Inner Binary Solar System - Basic Orbits - three.js</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/principia.css">
+  </head>
+  <body class="experiment">
+    <div id="panel">
+      <h1 class="experiment">Binary Solar System simulator</h1>
+      <p>
+        Enjoy the Newton laws in their glorious majestuosity, watching what would have been
+        living in a Solar System with two stars in it.
+      </p>
+      <h2 id="name" class="experiment"> Overall view </h2>
+      <p> Elapsed time: <span id="timer"> 0s </span></p>
+      <br>
+      <div id="instructions"></div>
+    </div>
+    <div id="animation"></div>
+
+    <script src="js/three.js"></script>
+    <script src="js/controls/OrbitControls.js"></script>
+    <script src="js/principia.js"></script>
+    <script src="js/panel.js"></script>
+    <script src="js/universe.js"></script>
+    <script src="js/viewpoint.js"></script>
+    <script src="js/spaceobject.js"></script>
+    <script src="js/star.js"></script>
+    <script src="js/rock.js"></script>
+    <script src="js/axes.js"></script>
+    <script src="js/trail.js"></script>
+    <script>
+      setTimer(document.getElementById("timer"));
+      setNamer(document.getElementById("name"));
+      setInstructor(document.getElementById("instructions"));
+      setAnimator(document.getElementById("animation"));
+
+      // PLEASE ADD YOUR CODE FROM THIS LINE ON --------------------------------
+
+      var universe = new Universe(2.0e16);
+      var axes = new Axes(universe, 1.0e13, 0, 0, 0);
+      var sun = new Star(universe, 0, 0, 0, 6.957e8, 'Sun', 'images/textures/sun.png', 0, 0, 0, 1.98855e30, 0, 0);
+      var mercury = new Rock(universe, 5.790905e10, 0, 0, 2.439700e6, 'Mercury', 'images/textures/mercury.png', 0, 0, 4.7362e4, 3.3011e23, 0.034/180*Math.PI, 86400*58.7);
+      var venus = new Rock(universe, 1.08208e11, 0, 0, 6.0518e6, 'Venus', 'images/textures/venus.png', 0, 0, 3.5020e4, 4.8675e24, 2.64/180*Math.PI, 86400*(-243.025));
+      var earth = new Rock(universe, 1.49598023e11, 0, 0, 6.371e6, 'Earth', 'images/textures/earth.png', 0, 0, 2.978e4, 5.97237e24, 23.4392811/180*Math.PI, 86400);
+      var moon = new Rock(universe, 1.49598023e11-3.84399e8, 0, 0, 1.7371e6, 'Moon', 'images/textures/moon.png', 0, 0, 2.978e4-1.022e3, 7.342e22, 1.5424/180*Math.PI, -86400*27.321661);
+      var mars = new Rock(universe, 2.279392e11, 0, 0, 3.3895e6, 'Mars', 'images/textures/mars.png', 0, 0, 2.4007e4, 6.4171e23, 25.19/180*Math.PI, 86400*1.025957);
+      var sun2 = new Star(universe, -2.279392e11, 0, 0, 3.957e8, 'Sun2', 'images/textures/sun.png', 0, 0, -2.978e4, 9.8855e29, 0, 0);
+      animate();
+      
+    </script>
+  </body>
+</html>
