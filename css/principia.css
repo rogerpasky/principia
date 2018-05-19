@@ -14,7 +14,21 @@ body.experiment{
   overflow: visible;
 }
 .indent {
-  margin-left: 3%;
+  padding: 2%;
+}
+.lateral {
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-left-color: #e0a000;
+  margin-top: 3%;
+  padding-top: 0%;
+  padding-bottom: 0%;
+}
+.transparent {
+  margin-top: 3%;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding-right: 2%;
+  padding-bottom: 1%;
 }
 #panel {
   background-color: rgba(0, 0, 0, 0.5);
@@ -25,7 +39,7 @@ body.experiment{
 }
 h1, h2, h3, h4 {
   color: #f0f0f0;
-  margin-top: 2em;
+  margin-top: 0%;
 }
 h1.experiment, h2.experiment, h3.experiment, h4.experiment {
   margin-top: 1em;
