@@ -4,7 +4,7 @@ let nameContainer;
 
 function ViewPoint(universe, target, x, y, z, name) {
   let aspectRatio = window.innerWidth / window.innerHeight;
-  this.camera = new THREE.PerspectiveCamera(50, aspectRatio, 0.01, 2*universe.radius);
+  this.camera = new THREE.PerspectiveCamera(50, aspectRatio, 0.04, 2*universe.radius);
   this.camera.position.x = x/K || 0;
   this.camera.position.y = y/K || 0;
   this.camera.position.z = z/K || 0;

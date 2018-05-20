@@ -19,7 +19,7 @@ function SpaceObject(universe, x, y, z, radius, name, vx0, vy0, vz0, mass, tilt,
     universe.add(this);
     spaceObjects.push(this);
   
-    this.viewPoint = new ViewPoint(universe, this, 0, 0, radius*3, name); // Unscaled
+    this.viewPoint = new ViewPoint(universe, this, 0, 0, radius*5 , name); // Unscaled
     this.trail = new Trail(universe, this.position.x, this.position.y, this.position.z, 200, 50)
 }
 SpaceObject.prototype = Object.assign(Object.create(THREE.Object3D.prototype), {
