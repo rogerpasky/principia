@@ -7,7 +7,7 @@ mode**.
 Please go to [Principia Homepage](https://rogerpasky.github.io/principia/) to
 enjoy some examples. More examples contribution is welcome.
 
-## technical issues
+## Technical issues
 I tried hard to use internally the actual numbers of the planets, but they are 
 so huge they caused some overflow problems in JavaScript (you know, it is not 
 the best language to have precise calculations because its float number 
