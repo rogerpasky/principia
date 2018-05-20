@@ -5,6 +5,13 @@ body {
   background-color: #1a1a1a;
   color: #a0a0a0;
 }
+body.index {
+  background-image: url("/principia/images/indexbackground.png");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-attachment: fixed;
+  background-size: 100%;
+}
 body.experiment{
   overflow: hidden;
 } 
@@ -12,6 +19,9 @@ body.experiment{
   margin-left: 10%;
   margin-right: 10%;
   overflow: visible;
+}
+.separator {
+  height: 22vw;
 }
 .indent {
   padding: 2%;
