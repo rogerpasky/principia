@@ -31,4 +31,5 @@ Star.prototype = Object.assign(Object.create(SpaceObject.prototype), {
   constructor: Star,
   isStar: true
 } );
+
 // export {Star};
