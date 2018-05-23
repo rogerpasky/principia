@@ -13,29 +13,29 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-function Axes(parent, size, x, y, z, n) {
-  size = size/K || 1;
+const COLORS = [
+  1, 0, 0,	0.1, 0, 0,
+  0, 1, 0,	0, 0.1, 0,
+  0, 0, 1,	0, 0, 0.1,
+  0, 1, 1,	0, 0.1, 0.1,
+  1, 0, 1,	0.1, 0, 0.1,
+  1, 1, 0,	0.1, 0.1, 0,
+];
+
+function Axes(parent, x, y, z, radius) {
+  this.radius = size/K || 1;
   var vertices = [
-    0, 0, 0,	size, 0, 0,
-    0, 0, 0,	0, size, 0,
-    0, 0, 0,	0, 0, size,
-    0, 0, 0,	-size, 0, 0,
-    0, 0, 0,	0, -size, 0,
-    0, 0, 0,	0, 0, -size,
+    0, 0, 0,	this.radius, 0, 0,
+    0, 0, 0,	0, this.radius, 0,
+    0, 0, 0,	0, 0, this.radius,
+    0, 0, 0,	-this.radius, 0, 0,
+    0, 0, 0,	0, -this.radius, 0,
+    0, 0, 0,	0, 0, -this.radius,
   ];
-  var colors = [
-    1, 0, 0,	0.1, 0, 0,
-    0, 1, 0,	0, 0.1, 0,
-    0, 0, 1,	0, 0, 0.1,
-    0, 1, 1,	0, 0.1, 0.1,
-    1, 0, 1,	0.1, 0, 0.1,
-    1, 1, 0,	0.1, 0.1, 0,
-  ];
-  var n = n || 0; // TODO: Decimal measure lines
 
   var geometry = new THREE.BufferGeometry();
   geometry.addAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
-  geometry.addAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+  geometry.addAttribute('color', new THREE.Float32BufferAttribute(COLORS, 3));
   var material = new THREE.LineBasicMaterial({vertexColors: THREE.VertexColors});
 
   THREE.LineSegments.call(this, geometry, material);

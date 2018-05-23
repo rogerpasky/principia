@@ -46,7 +46,7 @@
 
       var sunRadius = 6.957e8;
       var universe = new Universe(2.0e16);
-      var axes = new Axes(universe, 1.0e13, 0, 0, 0);
+      var axes = new Axes(universe, 0, 0, 0, 1.0e13);
       var sun = new Star(universe, 0, 0, 0, sunRadius, 'Sun', 'images/textures/sun.png', 2*sunRadius, 0, 0, 1.98855e30, 0, 0);
 
       var axesArray = [];
@@ -55,7 +55,7 @@
       function myStep(timeDelta) {
         elapsedTime += timeDelta;
         if (_elapsedTime >= nextSecond) {
-          axesArray.push(new Axes(universe, sunRadius, K*sun.position.x, K*sun.position.y, K*sun.position.z));
+          axesArray.push(new Axes(universe, K*sun.position.x, K*sun.position.y, K*sun.position.z, sunRadius));
           nextSecond +=1;
         }
       }

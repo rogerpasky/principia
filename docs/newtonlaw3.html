@@ -47,7 +47,7 @@
 
       let sunRadius = 6.957e8;
       var universe = new Universe(2.0e16);
-      var axes = new Axes(universe, 1.0e13, 0, 0, 0);
+      var axes = new Axes(universe, 0, 0, 0, 1.0e13);
       var sun = new Star(universe, 3e9, 0, 0, 6.957e8, 'Sun', 'images/textures/sun.png', 0, 0, 0, 1.98855e30, 0, 0);
       var sun2 = new Star(universe, -3e9, 0, 0, 6.957e8, 'Second Sun', 'images/textures/sun.png', 0, 0, 0, 1.98855e30, 0, 0);
 
@@ -60,8 +60,8 @@
       function myStep(timeDelta) {
         elapsedTime += timeDelta;
         if (_elapsedTime >= nextSecond) {
-          axesArray.push(new Axes(universe, sunRadius, K*sun.position.x, K*sun.position.y, K*sun.position.z));
-          axesArray.push(new Axes(universe, sunRadius, K*sun2.position.x, K*sun2.position.y, K*sun2.position.z));
+          axesArray.push(new Axes(universe, K*sun.position.x, K*sun.position.y, K*sun.position.z, sunRadius));
+          axesArray.push(new Axes(universe, K*sun2.position.x, K*sun2.position.y, K*sun2.position.z, sunRadius));
           nextSecond +=3600;
         }
         if (K*sun.position.distanceTo(sun2.position) <= 2*sunRadius) togglePause();

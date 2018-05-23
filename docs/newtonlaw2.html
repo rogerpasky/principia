@@ -88,7 +88,7 @@ http://www.wolframalpha.com/input/?i=%22261121*x%5E3%2B1022*6.957e8*x%5E2%2B6.95
       let sunRadius = 6.957e8;
       let mercuryRadius = 13443.7;
       var universe = new Universe(2.0e16);
-      var axes = new Axes(universe, 1.0e13, 0, 0, 0);
+      var axes = new Axes(universe, 0, 0, 0, 1.0e13);
       var sun = new Star(universe, 0, 0, 0, sunRadius, 'Sun', 'images/textures/sun.png', 0, 0, 0, 1.98855e30, 0, 0);
       var mercury = new Rock(universe, sunRadius+511*mercuryRadius, 0, 0, mercuryRadius, 'Mercury', 'images/textures/mercury.png', -mercuryRadius/10, 0, 0, 3.3011e23, 0.034/180*Math.PI, 86400*58.7);
 
@@ -96,10 +96,11 @@ http://www.wolframalpha.com/input/?i=%22261121*x%5E3%2B1022*6.957e8*x%5E2%2B6.95
       const axesPositions = [[0, 1], [1, 0], [0, -1], [-1, 0]];
       for (var i=0; i<256; i++) {
         axesPositions.forEach(position => {
-          axesArray.push(new Axes(universe, mercuryRadius/4, 
+          axesArray.push(new Axes(universe, 
             sunRadius + mercuryRadius*(2*i + 1),
             mercuryRadius*position[0],
-            mercuryRadius*position[1]
+            mercuryRadius*position[1],
+            mercuryRadius/4
           ));
         });
       }
@@ -108,7 +109,7 @@ http://www.wolframalpha.com/input/?i=%22261121*x%5E3%2B1022*6.957e8*x%5E2%2B6.95
       function myStep(timeDelta) {
         elapsedTime += timeDelta;
         if (_elapsedTime >= nextSecond) {
-          axesArray.push(new Axes(universe, mercuryRadius, K*mercury.position.x, K*mercury.position.y, K*mercury.position.z));
+          axesArray.push(new Axes(universe, K*mercury.position.x, K*mercury.position.y, K*mercury.position.z, mercuryRadius));
           nextSecond +=10;
         }
       }
