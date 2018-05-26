@@ -1,1 +1,1 @@
-exclude: [css, js, images]
+exclude: [/css, /js, /images]
